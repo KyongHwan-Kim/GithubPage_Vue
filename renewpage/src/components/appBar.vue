@@ -23,8 +23,8 @@
           <v-col>
             <v-spacer></v-spacer>
           </v-col>
-          <v-col class="d-flex align-end">
-            <v-tabs v-model="tab">
+          <v-col class="d-flex align-center">
+            <v-tabs v-model="tab" grow>
               <v-tab v-for="item in items" :key="item" :value="item">
                 {{ item }}
               </v-tab>
