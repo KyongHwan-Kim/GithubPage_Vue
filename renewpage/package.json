@@ -1,5 +1,5 @@
 {
-  "name": "githubpage",
+  "name": "renewpage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.15",
     "vuetify": "npm:@vuetify/nightly@next",
     "webfontloader": "^1.0.0"
   },
@@ -23,7 +23,6 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.38.0",
     "sass-loader": "^10.0.0",
@@ -35,9 +34,14 @@
     "env": {
       "node": true
     },
-    "rules": {
-      "no-extra-semi": "warn"
-    }
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
