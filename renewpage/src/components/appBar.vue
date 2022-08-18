@@ -14,8 +14,9 @@
             <v-btn icon>
               <v-icon>mdi-magnify</v-icon>
             </v-btn>
-            <v-btn icon>
+            <v-btn icon @click="postData">
               <v-icon>mdi-dots-vertical</v-icon>
+              <b>{{ response }}</b>
             </v-btn>
           </v-col>
         </v-row>
@@ -58,11 +59,8 @@ export default {
     items: ["about", "Documents", "Contest", "Life", "news"],
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     sendData: {
-      "m2m:ae": {
-        rn: "ae_test2",
-        api: "0.2.481.2.0001.001.000111",
-        lbl: ["key1", "key2"],
-        rr: true,
+      "m2m:cin": {
+        con: "on",
       },
     },
   }),
@@ -84,11 +82,13 @@ export default {
       this.$axios({
         method: "POST",
         headers: {
+          Accept: "application/json",
           "X-M2M-RI": "123aaghjhk45",
           "X-M2M-Origin": "S",
-          "Content-Type": "application/json;ty=2",
+          "Content-Type": "application/json;ty=4",
         },
-        url: "http://203.250.148.52:20516/Mobius",
+        // url: "https://cors-anywhere.herokuapp.com/http://203.250.148.52:20516/Mobius/setting/cnt_test",
+        url: "setting/cnt_test",
         data: this.sendData,
       })
         .then((response) => {
