@@ -1,51 +1,18 @@
 <template>
   <v-card>
-    <v-toolbar color="primary" height="120">
-      <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
-      <v-container class="mb-0">
-        <v-row>
-          <v-col>
-            <v-spacer></v-spacer>
-          </v-col>
-          <v-col class="d-flex justify-center align-center">
-            Developer Bever
-          </v-col>
-          <v-col class="d-flex justify-end">
-            <v-btn icon>
-              <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-            <v-btn icon @click="postData">
-              <v-icon>mdi-dots-vertical</v-icon>
-              <b>{{ response }}</b>
-            </v-btn>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-spacer></v-spacer>
-          </v-col>
-          <v-col class="d-flex align-center">
-            <v-tabs v-model="tab" grow>
-              <v-tab v-for="item in items" :key="item" :value="item">
-                {{ item }}
-              </v-tab>
-            </v-tabs>
-          </v-col>
-          <v-col>
-            <v-spacer></v-spacer>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-toolbar>
-
-    <v-window v-model="tab">
-      <v-window-item v-for="item in items" :key="item" :value="item">
-        <v-card flat>
-          <v-card-text v-text="text"></v-card-text>
-        </v-card>
-      </v-window-item>
-    </v-window>
-  </v-card>
+    <v-app-bar color="grey-lighten-2" height="60" align="bottom">
+      <v-app-bar-nav-icon
+        variant="text"
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+      <span id="blogTitle">{{ blogTitle }}</span>
+      <v-spacer></v-spacer>
+      <v-tabs v-model="tab">
+        <v-tab value="one">Item One</v-tab>
+        <v-tab value="two">Item Two</v-tab>
+        <v-tab value="three">Item Three</v-tab>
+      </v-tabs>
+    </v-app-bar>
 </template>
 
 <script>

@@ -1,60 +1,7 @@
 <template>
   <v-layout>
-    <v-navigation-drawer color="grey-darken-2" v-if="drawer">
-      <v-row class="ma-3" align="center" justify="center">
-        <v-avatar color="grey darken-1" size="150"></v-avatar>
-      </v-row>
-
-      <v-list v-model:opened="open" bg-color="transparent">
-        <v-list-item prepend-icon="mdi-home" title="Home"></v-list-item>
-
-        <v-list-group value="Users">
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              v-bind="props"
-              prepend-icon="mdi-account-circle"
-              title="Users"
-            ></v-list-item>
-          </template>
-
-          <v-list-group value="Admin">
-            <template v-slot:activator="{ props }">
-              <v-list-item v-bind="props" title="Admin"></v-list-item>
-            </template>
-
-            <v-list-item
-              v-for="([title, icon], i) in admins"
-              :key="i"
-              :title="title"
-              :prepend-icon="icon"
-              :value="title"
-            ></v-list-item>
-          </v-list-group>
-
-          <v-list-group value="Actions">
-            <template v-slot:activator="{ props }">
-              <v-list-item v-bind="props" title="Actions"></v-list-item>
-            </template>
-            <v-list-item
-              v-for="([title, icon], i) in cruds"
-              :key="i"
-              :value="title"
-              :title="title"
-              :prepend-icon="icon"
-            ></v-list-item>
-          </v-list-group>
-        </v-list-group>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar color="grey-lighten-2">
-      <v-app-bar-nav-icon
-        variant="text"
-        @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
-    </v-app-bar>
     <v-main>
       <router-view></router-view>
-      <v-card height="200px"></v-card>
     </v-main>
   </v-layout>
 </template>
@@ -63,6 +10,7 @@
 export default {
   name: "App",
   data: () => ({
+    blogTitle: "Bver의 개발 블로그",
     drawer: true,
     items: [
       { type: "subheader", title: "Group #1" },
